@@ -1,0 +1,47 @@
+<br />
+<br />
+<h1>new task</h1>
+<div
+  [ngStyle]="{
+    'text-align': 'left',
+    'background-color': 'gray',
+    border: '5px solid DarkGrey'
+  }"
+>
+  <br />
+  <form #f="ngForm" (ngSubmit)="addTask(f.valid && f.dirty)">
+    <mat-form-field
+      class="example-full-width"
+      style="width: 60%"
+      appearance="fill"
+    >
+      <mat-label>title</mat-label>
+      <input
+        name="task"
+        #task="ngModel"
+        [(ngModel)]="obj.title"
+        required
+        matInput
+      />
+      <mat-hint *ngIf="!task.valid && task.dirty"> field is required</mat-hint>
+    </mat-form-field>
+    <input
+      [ngStyle]="{ float: 'right' }"
+      type="submit"
+      value="Add"
+      class="btn btn-light"
+      data-mdb-ripple-color="dark"
+    />
+    <input
+      (click)="cancel()"
+      [ngStyle]="{ float: 'right' }"
+      type="button"
+      value="cancel"
+      class="btn btn-light"
+      data-mdb-ripple-color="dark"
+    />
+  </form>
+</div>
+<div style="height: 15%"></div>
+<h3>posts:{{ Name }}</h3>
+<app-posts [post]="item" *ngFor="let item of posts"></app-posts>

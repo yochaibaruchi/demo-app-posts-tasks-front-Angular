@@ -1,0 +1,30 @@
+<br />
+<div>
+  <button
+    (click)="moveToAddTask()"
+    [ngStyle]="{ float: 'right' }"
+    mat-raised-button
+  >
+    Add
+  </button>
+</div>
+<h3>todos : {{ name }}</h3>
+<br />
+<app-todos
+  [userFromfather]="user"
+  [task]="item"
+  *ngFor="let item of tasks"
+></app-todos>
+<br />
+<br />
+<div>
+  <button
+    [ngStyle]="{ float: 'right' }"
+    (click)="moveToAddPost()"
+    mat-raised-button
+  >
+    Add
+  </button>
+</div>
+<h3>posts:{{ name }}</h3>
+<app-posts *ngFor="let item of posts" [post]="item"></app-posts>

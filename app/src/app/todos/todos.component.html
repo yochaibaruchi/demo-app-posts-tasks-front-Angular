@@ -1,0 +1,19 @@
+<div
+  [ngStyle]="{
+    'text-align': 'left',
+    'background-color': 'LightGray',
+    border: '5px solid gray'
+  }"
+>
+  title : {{ task.title }} <br />
+  <span>Completed: {{ task.Completed }}</span>
+  <button
+    (click)="markAsCompleted()"
+    *ngIf="task.Completed === false"
+    [ngStyle]="{ float: 'right' }"
+    mat-raised-button
+  >
+    Mark Completed
+  </button>
+  <br /><br />
+</div>

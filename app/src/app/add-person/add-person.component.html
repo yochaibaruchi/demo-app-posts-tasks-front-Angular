@@ -1,0 +1,87 @@
+<br />
+<h1>add person</h1>
+
+<form #f="ngForm" (ngSubmit)="addPerson(f.valid && f.dirty)">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>name</mat-label>
+    <input
+      name="user"
+      #name="ngModel"
+      [(ngModel)]="obj.Name"
+      required
+      matInput
+    />
+    <mat-hint *ngIf="!name.valid && name.dirty">
+      name field is required</mat-hint
+    >
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>email</mat-label>
+    <input
+      name="email"
+      #email="ngModel"
+      [(ngModel)]="obj.email"
+      required
+      matInput
+    />
+    <mat-hint *ngIf="!email.valid && email.dirty">
+      email field is required</mat-hint
+    >
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>street</mat-label>
+    <input
+      name="street"
+      #street="ngModel"
+      [(ngModel)]="obj.street"
+      matInput
+      required
+    />
+    <mat-hint *ngIf="!street.valid && street.dirty">
+      street field is required</mat-hint
+    >
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>city</mat-label>
+    <input
+      name="City"
+      #City="ngModel"
+      [(ngModel)]="obj.City"
+      required
+      matInput
+    />
+    <mat-hint *ngIf="!City.valid && City.dirty"
+      >city field is required</mat-hint
+    >
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Zipcode</mat-label>
+    <input
+      required
+      type="number"
+      name="Zipcode"
+      #Zipcode="ngModel"
+      [(ngModel)]="obj.Zipcode"
+      matInput
+    />
+  </mat-form-field>
+  <br />
+  <input
+    type="submit"
+    value="confirm"
+    class="btn btn-light"
+    data-mdb-ripple-color="dark"
+  />
+</form>
+<br />
+<input
+  (click)="back()"
+  type="button"
+  value="back"
+  class="btn btn-light"
+  data-mdb-ripple-color="dark"
+/>

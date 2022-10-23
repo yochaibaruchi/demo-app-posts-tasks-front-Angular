@@ -1,0 +1,101 @@
+<div
+  (click)="dataUp()"
+  [ngStyle]="{
+    'background-color': clickedUserId === user._id ? 'orange' : 'gray',
+    'border-color': changecolor() ? 'green' : 'red'
+  }"
+  style="
+    border: 5px solid;
+    height: fit-content;
+    width: 100%;
+    border-radius: 5%;
+    text-align: start;
+  "
+>
+  <span style="display: none">id:{{ user._id }}</span> <br />
+  <form #f="ngForm" (ngSubmit)="update(f.valid && f.dirty)">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>name</mat-label>
+      <input
+        name="user"
+        #name="ngModel"
+        [(ngModel)]="userName"
+        required
+        matInput
+      />
+      <mat-hint *ngIf="!name.valid && name.dirty">
+        name field is required</mat-hint
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>email</mat-label>
+      <input
+        name="email"
+        #email="ngModel"
+        [(ngModel)]="userEmail"
+        required
+        matInput
+      />
+      <mat-hint *ngIf="!email.valid && email.dirty">
+        email field is required</mat-hint
+      >
+    </mat-form-field>
+    <br />
+    <button (mouseenter)="flagChange()" (click)="close()" mat-raised-button>
+      other data
+    </button>
+    <div *ngIf="flag == true">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>street</mat-label>
+        <input
+          name="street"
+          #street="ngModel"
+          [(ngModel)]="userStreet"
+          matInput
+          required
+        />
+        <mat-hint *ngIf="!street.valid && street.dirty">
+          street field is required</mat-hint
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>city</mat-label>
+        <input
+          name="City"
+          #City="ngModel"
+          [(ngModel)]="userCity"
+          required
+          matInput
+        />
+        <mat-hint *ngIf="!City.valid && City.dirty"
+          >city field is required</mat-hint
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Zipcode</mat-label>
+        <input
+          type="number"
+          name="Zipcode"
+          #Zipcode="ngModel"
+          [(ngModel)]="userZipcode"
+          matInput
+        />
+      </mat-form-field>
+      <br />
+    </div>
+
+    &nbsp;
+    <input
+      type="submit"
+      value="update"
+      class="btn btn-light"
+      data-mdb-ripple-color="dark"
+    />
+    &nbsp;
+    <button (click)="delete()" mat-raised-button>DELETE</button>
+  </form>
+</div>
+<br />

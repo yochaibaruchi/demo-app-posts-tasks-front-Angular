@@ -1,0 +1,21 @@
+<div style="align-items: center">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>search</mat-label>
+    <input (keyup)="search(f.value)" name="search" #f matInput />
+  </mat-form-field>
+  <button
+    (click)="addPerson()"
+    [ngStyle]="{ float: 'right' }"
+    mat-raised-button
+  >
+    Add person
+  </button>
+  <br />
+  <app-emps
+    *ngFor="let item of result"
+    [clickedUserId]="clickedUserId"
+    [user]="item"
+    (dataToPerent)="dataFromChild($event)"
+    (dataToPerent1)="modifyListView($event)"
+  ></app-emps>
+</div>

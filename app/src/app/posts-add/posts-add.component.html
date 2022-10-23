@@ -1,0 +1,62 @@
+<br />
+
+<h3>todos : {{ user.Name }}</h3>
+<br />
+<app-todos
+  [userFromfather]="user"
+  [task]="item"
+  *ngFor="let item of user.Tasks"
+></app-todos>
+<br />
+<br /><br />
+<h1>new post</h1>
+<div
+  [ngStyle]="{
+    'text-align': 'left',
+    'background-color': 'gray',
+    border: '5px solid DarkGrey'
+  }"
+>
+  <br />
+  <form #f="ngForm" (ngSubmit)="addpost(f.valid && f.dirty)">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>title</mat-label>
+      <input
+        name="title"
+        #title="ngModel"
+        [(ngModel)]="obj.title"
+        required
+        matInput
+      />
+      <mat-hint *ngIf="!title.valid && title.dirty">
+        title field is required</mat-hint
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>body</mat-label>
+      <textarea
+        name="body"
+        #body
+        [(ngModel)]="obj.body"
+        required
+        matInput
+      ></textarea>
+    </mat-form-field>
+    <input
+      [ngStyle]="{ float: 'right' }"
+      type="submit"
+      value="Add"
+      class="btn btn-light"
+      data-mdb-ripple-color="dark"
+    />
+    <input
+      (click)="cancel()"
+      [ngStyle]="{ float: 'right' }"
+      type="button"
+      value="cancel"
+      class="btn btn-light"
+      data-mdb-ripple-color="dark"
+    />
+  </form>
+</div>
